@@ -12,12 +12,33 @@
 
 #container {
     margin: auto;
-    width: 90%;
+    width: min(90%, 1120px); /* ou 120rem */
 }
 
+#logo {
+    animation-delay: 50ms;
+}
 
 .location, h1, .visit p {
     height: 16vh;
+}
+
+.location {
+    animation-delay: 100ms;
+}
+
+main h1 {
+    animation-delay: 150ms;
+    font-size: clamp(4rem, 8vw, 8.4rem);
+    line-height: 0.88;
+    margin: clamp(3vh, 7vh, 12vh) auto 4rem auto;
+
+    width: min(300px, 80%); 
+}
+
+
+.visit p{
+    animation-delay: 200ms;
 }
 
 .visit a {
@@ -34,31 +55,63 @@
 
     transition: background-color .2s;
 
+    animation-delay: 250ms;
+
 }
 
 .visit a:hover {
     background-color: #96feff;
-
 }
 
-/*animaçòes*/
 
-#logo {
-    animation-delay: 50ms;
-}
+/* responsive */
 
-.location {
-    animation-delay: 100ms;
-}
+@media (min-width: 760px) {
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-main h1 {
-    animation-delay: 150ms;
-}
+    #container {
+        background-image: url("../images/bg.svg");
+        background-repeat: no-repeat; 
+        background-position: 80%; /*dois valores, eixo y eixo x / um valor aplica para os dois eixos*/
+        background-size: clamp(30rem, 50vh, 56vh);
+        padding: 5rem;
+    }
 
-.visit p{
-    animation-delay: 200ms;
-}
+    .location, h1, .visit p {
+        height: auto;
+        text-align: initial;
+    }
 
-.visit a{
-    animation-delay: 250ms;
+    .location {
+        font-size: 2.4rem;
+        line-height: 1.5;
+        text-align: right;
+    }
+
+    main h1 {
+         /* pede 3 valores: min, ideal, max */
+        font-weight: bold;
+        margin: clamp(3vh, 7vh, 12vh) 0 4rem 0;
+    }
+
+    .visit {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .visit p {
+        font-size: 2.4rem;
+        line-height: 1.2;
+        width: clamp(20rem, 20vw, 30rem)
+
+    }
+
+    .visit a{
+        margin: initial;
+    }
 }

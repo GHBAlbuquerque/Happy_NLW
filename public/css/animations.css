@@ -16,5 +16,4 @@
     animation-name: up;
     animation-duration: 300ms;
     animation-fill-mode: backwards; /*vai parar no "to"*/
-
 }
