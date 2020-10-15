@@ -30,10 +30,6 @@
 main h1 {
     animation-delay: 150ms;
     font-size: clamp(4rem, 8vw, 8.4rem);
-    line-height: 0.88;
-    margin: clamp(3vh, 7vh, 12vh) auto 4rem auto;
-
-    width: min(300px, 80%); 
 }
 
 
@@ -82,7 +78,7 @@ main h1 {
     }
 
     .location, h1, .visit p {
-        height: auto;
+        height: initial;
         text-align: initial;
     }
 
@@ -95,7 +91,9 @@ main h1 {
     main h1 {
          /* pede 3 valores: min, ideal, max */
         font-weight: bold;
-        margin: clamp(3vh, 7vh, 12vh) 0 4rem 0;
+        line-height: 0.88;
+        margin: clamp(3vh, 7vh, 12%) 0 4rem 0;
+        width: min(300px, 80%); 
     }
 
     .visit {
