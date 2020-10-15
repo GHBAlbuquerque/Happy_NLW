@@ -73,7 +73,7 @@ main h1 {
 
     #page-landing {
         background-size: cover;
-        height: initial;
+        height: 100%;
     }
 
     #container {
