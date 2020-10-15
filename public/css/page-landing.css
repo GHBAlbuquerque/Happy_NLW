@@ -1,19 +1,20 @@
 
 #page-landing {
     background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100% ); /*primeiro valor em graus, depois cor hexadecimal com porcentagem */
+    background-size: cover;
     color: white;
     height: 100vh;
     text-align: center;
 
     display: flex;
     align-items: center;
-
 }
 
 #container {
     margin: auto;
     width: min(90%, 1120px); /* ou 120rem */
 }
+
 
 #logo {
     animation-delay: 50ms;
@@ -34,6 +35,7 @@ main h1 {
 
 
 .visit p{
+    margin-top: clamp(5vh, 6vh, 8vh);
     animation-delay: 200ms;
 }
 
@@ -69,12 +71,17 @@ main h1 {
         justify-content: space-between;
     }
 
+    #page-landing {
+        background-size: cover;
+        height: 100%;
+    }
+
     #container {
         background-image: url("../images/bg.svg");
         background-repeat: no-repeat; 
         background-position: 80%; /*dois valores, eixo y eixo x / um valor aplica para os dois eixos*/
         background-size: clamp(30rem, 50vh, 56vh);
-        padding: 5rem;
+        padding: 3rem;
     }
 
     .location, h1, .visit p {
@@ -103,10 +110,10 @@ main h1 {
     }
 
     .visit p {
-        font-size: 2.4rem;
+        font-size: 2rem;
         line-height: 1.2;
+        margin-top: 2vh;
         width: clamp(20rem, 20vw, 30rem)
-
     }
 
     .visit a{
