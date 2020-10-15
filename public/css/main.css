@@ -15,3 +15,9 @@ body, input, button, textarea {
     font-weight: 400;
     color: white;
 }
+
+body {
+    height: 100vh;
+    color: white;
+    background: #EBF2F5
+}
