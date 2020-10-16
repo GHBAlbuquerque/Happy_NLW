@@ -104,5 +104,20 @@ fieldset + fieldset { /*pegando o irmão*/
 
     position: absolute;
     right: 16px;
-    bottom: 15%;
+    bottom: 18px;
+}
+
+/*msg erro*/
+
+.msg {
+    padding: 15px 25px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: #f2f2f2;
+}
+.msg-erro, 
+.destacar {
+    border-color: #db2323;
+    color: #db2323;
+    background-color: #fff0f0;
 }
