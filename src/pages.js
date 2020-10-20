@@ -1,4 +1,4 @@
-const orphanages = require('./database/fakedata.js')
+const orphanages = require('./database/fakedata.js');
 
 //route functions
 module.exports = {
@@ -16,7 +16,7 @@ module.exports = {
     },
 
     orphanages(req,res) {
-        return res.render('orphanages', [ orphanages ])
+        return res.render('orphanages', { orphanages })
     },
 
     createOrphanage(req,res) {
