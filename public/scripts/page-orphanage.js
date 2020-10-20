@@ -20,7 +20,7 @@ L.tileLayer(
 //create icon
 
 var icon = L.icon({
-    iconUrl: "./public/images/map-marker.svg",
+    iconUrl: "/images/map-marker.svg",
     iconSize:     [48, 48], // size of the icon
     iconAnchor:   [29, 68], // point of the icon which will correspond to marker's location
     popupAnchor:  [170, 2] // point from which the popup should open relative to the iconAnchor

@@ -11,7 +11,7 @@ L.tileLayer(
 //create icon
 
 var icon = L.icon({
-    iconUrl: "./public/images/map-marker.svg",
+    iconUrl: "/images/map-marker.svg",
     iconSize:     [58, 68], // size of the icon
     iconAnchor:   [29, 68], // point of the icon which will correspond to marker's location
 });
@@ -23,19 +23,19 @@ map.on('click', function(event) {
     const formLat = document.querySelector("#latitude")
     const formLng = document.querySelector("#longitude")
 
-    let latitude = event.latlng.lat;
-    let longitude = event.latlng.lng;
+    let lat = event.latlng.lat;
+    let lng = event.latlng.lng;
 
     //remove previous icons
     marker && map.removeLayer(marker);
 
     //zoom on point
-    map.setView([latitude, longitude])
+    map.setView([lat, lng])
     
     //add icon layer
-    marker = L.marker([latitude, longitude], { icon }).addTo(map);
-    formLat.value = latitude;
-    formLng.value = longitude;
+    marker = L.marker([lat, lng], { icon }).addTo(map);
+    formLat.value = lat;
+    formLng.value = lng;
 })
 
 

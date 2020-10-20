@@ -12,7 +12,7 @@ L.tileLayer(
 //create icon
 
 var icon = L.icon({
-    iconUrl: "./public/images/map-marker.svg",
+    iconUrl: "/images/map-marker.svg",
     iconSize:     [58, 68], // size of the icon
     iconAnchor:   [29, 68], // point of the icon which will correspond to marker's location
     popupAnchor:  [170, 2] // point from which the popup should open relative to the iconAnchor
@@ -25,7 +25,7 @@ const popup = L.popup({
     className: 'map-popup',
     minWidth: 240,
     minHeight: 240
-}).setContent('Lar das meninas <a href="http://127.0.0.1:5500/ophanage.html" class="choose-orphanage"> <img src="./public/images/arrow-white.svg"></a>')
+}).setContent('Lar das meninas <a href="/orphanage?id=1" class="choose-orphanage"> <img src="/images/arrow-white.svg"></a>')
 
 // pop-ups
 
