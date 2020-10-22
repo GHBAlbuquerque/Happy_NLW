@@ -35,7 +35,7 @@
             <a href="/">
                 <img src="/images/map-marker.svg" alt="Happy Logo">
             </a>
-            
+
             <footer>
                 <button onclick="history.back()">
                     <img src="/images/arrow-back.svg" alt="Voltar">
@@ -48,66 +48,58 @@
                 <img src="https://source.unsplash.com/random?id=1" alt="orfanato hero image">
 
                 <div class="images">
+                    {{#each orphanage.images}}
                     <button onclick="selectImage(event)" class="active" type="button">
-                        <img src="https://source.unsplash.com/random?id=27" alt="orfanato botão">
+                        <img src="{{this}}" alt="{{orphanage.name}}">
                     </button>
-
-                    <button onclick="selectImage(event)" type="button">
-                        <img src="https://source.unsplash.com/random?id=3" alt="orfanato botão">
-                    </button>
-
-                    <button onclick="selectImage(event)" type="button">
-                        <img src="https://source.unsplash.com/random?id=5" alt="orfanato botão">
-                    </button>
-
-                    <button onclick="selectImage(event)" type="button">
-                        <img src="https://source.unsplash.com/random?id=38" alt="orfanato botão">
-                    </button>
-
-                    <button onclick="selectImage(event)" type="button">
-                        <img src="https://source.unsplash.com/random?id=9" alt="orfanato botão">
-                    </button>
-
-                    <button onclick="selectImage(event)" type="button">
-                        <img src="https://source.unsplash.com/random?id=11" alt="orfanato botão">
-                    </button>
+                    {{/each}}
 
                 </div>
 
                 <div class="orphanage-details-content">
 
-                    <h1>Lar das Meninas</h1>
+                    <h1>{{orphanage.name}}</h1>
 
-                    <p>Presta assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou
-                        vulnerabilidade social.</p>
+                    <p>{{orphanage.about}}</p>
 
                     <div class="map-container">
                         <div id="mapid"></div>
+                        <span hidden data-lat="{{orphanage.lat}}" data-lng="{{orphanage.lng}}">
+                        </span>
                         <footer>
-                            <a href="">Ver rotas no Google Maps</a>
+                            <a target="_blank"
+                                href="https://maps.google.com/mobile?q={{orphanage.lat}},{{orphanage.lng}}&z=15">Ver
+                                rotas no Google Maps</a>
                         </footer>
                     </div>
 
                     <hr>
 
                     <h2>Instruções para visita</h2>
-                    <p>Venha como se sentir a vontade e traga muito amor e paciência para dar.</p>
+                    <p>{{orphanage.instructions}}</p>
 
                     <div class="open-details">
                         <div class="hour">
                             <img src="/images/clock.svg" alt="horarios">
-                            Horário de Visitas
-                            Das 8h até 18h
+                            {{orphanage.opening_hours}}
                         </div>
-                        <div class="open-on-weekends">
+
+                        {{#if orphanage.open_on_weekends}}
+                        <div class="open-on-weekends open">
                             <img src="/images/info.svg" alt="informações">
-                            Atendemos aos finais de semana
+                            Atendemos aos finais de semanas
                         </div>
+                        {{else}}
+                        <div class="open-on-weekends closed">
+                            <img src="/images/info-red.svg" alt="informações">
+                            Não atendemos aos finais de semanas
+                        </div>
+                        {{/if}}
                     </div>
 
                     <button class="primary-button" type="button">
                         <img src="/images/whatsapp.svg" alt="Chamar no whatsapp">
-                        Entrar em contato
+                        <a target="a_blank" href="https://api.whatsapp.com/send?l=pt_BR&phone={{orphanage.whatsapp}}&text=Oi, quero conversar sobre visitas no {{orphanage.name}}">Entrar em contato</a> 
                     </button>
                 </div>
             </div>

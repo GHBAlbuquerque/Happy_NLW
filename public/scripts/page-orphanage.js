@@ -6,9 +6,12 @@ const options = {
     zoomControl: false
 };
 
+const spanLat = document.querySelector('span[data-lat]').dataset.lat;
+const spanLng = document.querySelector('span[data-lng]').dataset.lng;
+
 // create-map
 
-const map = L.map('mapid', options).setView([-23.5339705, -46.8544877], 16); //coordinates & zoom
+const map = L.map('mapid', options).setView([spanLat, spanLng], 16); //coordinates & zoom
 
 
 // tile-layer
@@ -27,11 +30,9 @@ var icon = L.icon({
 });
 
 //create popup overlay
+// markers
 
-
-// pop-ups
-
-L.marker([-23.5339705, -46.8544877], { icon }) //destructor icon const to icon
+L.marker([spanLat, spanLng], { icon }) //destructor icon const to icon
     .addTo(map);
 
 /* img gallery */

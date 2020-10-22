@@ -17,6 +17,12 @@
     transition: background-color .2s;
 }
 
+.primary-button a{
+    color:inherit;
+    display: block;
+    text-decoration: none;
+}
+
 .primary-button:hover{
     background: #36cf82;
 }
