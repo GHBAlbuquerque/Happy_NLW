@@ -20,8 +20,8 @@ let marker;
 
 //create and add marker
 map.on('click', function(event) {
-    const formLat = document.querySelector("#latitude")
-    const formLng = document.querySelector("#longitude")
+    const formLat = document.querySelector("#lat")
+    const formLng = document.querySelector("#lng")
 
     let lat = event.latlng.lat;
     let lng = event.latlng.lng;
@@ -40,7 +40,7 @@ map.on('click', function(event) {
 
 
 
-// ***************** ADD PHOTO ****************
+// ***************** ADD PHOTO FIELD ****************
 
     //get photo container #images
 const container = document.querySelector("#images")
@@ -54,23 +54,27 @@ function addPhotoField() {
     let fieldsContainer = document.querySelectorAll(".new-upload")
 
     //clone last added img
-    const newFieldContainer = fieldsContainer[fieldsContainer.length-1].cloneNode(true)
-
-    //verify if input is empty
-    let inputValue = newFieldContainer.children[0].value
-    if (inputValue == "") {
-        divMsg.textContent = 'Digite uma URL!';
-        container.insertAdjacentElement('beforebegin', divMsg);
+    if (fieldsContainer.length >= 6) {
+        alert('Máximo de 6 fotos!')
     } else {
-    //clean before cloning
-    newFieldContainer.children[0].value = ""
-
-    //add clone to container
-    if (document.querySelector(".msg") != null) {
-        document.querySelector(".msg").remove()
-    }
-
-    container.appendChild(newFieldContainer)
+        const newFieldContainer = fieldsContainer[fieldsContainer.length-1].cloneNode(true)
+        
+        //verify if input is empty
+        let inputValue = newFieldContainer.children[0].value
+        if (inputValue == "") {
+            divMsg.textContent = 'Digite uma URL!';
+            container.insertAdjacentElement('beforebegin', divMsg);
+        } else {
+        //clean before cloning
+        newFieldContainer.children[0].value = ""
+    
+        //add clone to container
+        if (document.querySelector(".msg") != null) {
+            document.querySelector(".msg").remove()
+        }
+    
+        container.appendChild(newFieldContainer)
+        }
     }
 
 }
@@ -104,3 +108,28 @@ function toggleSelect(event) {
     //atualizar o input hidden com o valor selecionado
     document.querySelector("#open-on-weekends").value = clickedButton.dataset.value
 }
+
+
+// ***************** CHECK IF ALL FIELDS ARE COMPLETE ****************
+
+const form = document.querySelector('form')
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    let fields = document.querySelectorAll('input');
+    let emptyFields = 0;
+
+    fields.forEach(function(input) {
+        if (input.value.trim() == "") {
+            emptyFields++
+        }
+    })
+
+    if (emptyFields > 0) {
+        alert('Todos os campos devem ser preenchidos! Escolha um local no mapa.')
+    } else {
+        console.log(fields.values)
+        alert('Formulario enviado com sucesso!')
+        form.submit()
+    }
+})

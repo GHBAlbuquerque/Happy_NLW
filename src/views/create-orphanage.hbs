@@ -45,14 +45,14 @@
         </aside>
 
         <main class="animate-appear with-siderbar">
-            <form action="">
+            <form action="save-orphanage" method="post">
                 <fieldset>
                     <legend>Dados</legend>
 
                     <div class="map-container">
                         <div id="mapid"></div>
-                        <input type="hidden" id="latitude" name="latitude" value="" />
-                        <input type="hidden" id="longitude" name="longitude" value="" />
+                        <input type="hidden" id="lat" name="lat" value="" />
+                        <input type="hidden" id="lng" name="lng" value="" />
                         <footer>
                             <a href="" id="select-point">Clique no mapa para adicionar a localização</a>
                         </footer>
@@ -82,6 +82,7 @@
                                     name="images" 
                                     placeholder="Cole o link da foto aqui" 
                                     required
+                                    type="url"
                                     />
                                     <span>
                                         <img src="/images/cancel.svg" alt="cancel button">
@@ -107,7 +108,7 @@
 
                     <div class="input-block">
                         <label for="opening-hours">Horário das Visitas</label>
-                        <input type="text" id="opening-hours" name="opening-hours" required>
+                        <input type="text" id="opening_hours" name="opening_hours" required>
                     </div>
 
                     <div class="input-block">
